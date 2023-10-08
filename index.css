@@ -1,5 +1,16 @@
 /* ---------- CUSTOM PROPERTIES --------------- */
 
+:root {
+  /* Add colors */
+  --cl-header-bg: 0, 0%, 5%;
+  --cl-main-bg: 0, 0%, 7%;
+  --cl-title-text: 0, 0%, 100%;
+  --cl-input-bg: 240, 1%, 18%;
+  --cl-input-text: 0, 0%, 65%;
+  --cl-search-btn-bg: 0, 0%, 29%;
+  --cl-explore-text: 240, 1%, 18%;
+}
+
 /* RESET */
 /* CSS Reset https://andy-bell.co.uk/a-modern-css-reset/ */
 
