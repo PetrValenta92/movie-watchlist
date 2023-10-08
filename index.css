@@ -4,7 +4,7 @@
   /* Add colors */
   --cl-header-bg: 0, 0%, 5%;
   --cl-main-bg: 0, 0%, 7%;
-  --cl-title-text: 0, 0%, 100%;
+  --cl-text: 0, 0%, 100%;
   --cl-input-bg: 240, 1%, 18%;
   --cl-input-text: 0, 0%, 65%;
   --cl-search-btn-bg: 0, 0%, 29%;
@@ -33,19 +33,109 @@ p {
 
 /* Set up body */
 body {
+  color: hsl(var(--cl-text));
+  background-color: hsl(var(--cl-main-bg));
   font-family: "Inter", sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-@media (width >= 420px) {
-  body {
-    font-size: 1.5rem;
-  }
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* Make images easier to work with */
 img {
   display: block;
   object-fit: cover;
+}
+
+/* ---------------- UTILITY CLASSES ------------------*/
+
+.container {
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2.75rem;
+}
+
+.flex {
+  display: flex;
+}
+
+/* ----------------- TYPOGRAPHY ------------------- */
+
+h1 {
+  font-size: 2.675rem;
+  font-weight: 800;
+  line-height: 0.6;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 700;
+  list-style: 1.1;
+}
+
+/* ---------------- LINK -------------------- */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 0.5;
+}
+
+/* ---------------- FOMR -------------------- */
+
+form {
+  justify-content: center;
+}
+
+form > * {
+  border: none;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+form input {
+  color: hsl(var(--cl-input-text));
+  background-color: hsl(var(--cl-input-bg));
+  width: 100%;
+  padding: 0.625rem 2.5rem;
+}
+
+form button {
+  color: inherit;
+  background-color: hsl(var(--cl-search-btn-bg));
+  padding: 0.625rem 2.125rem;
+}
+
+/* ---------------- LAYOUT -------------------- */
+
+.film-search .container {
+  min-height: 30vh;
+  justify-content: space-between;
+  align-items: center;
+
+  background-image: url(./images/movies.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: hsl(var(--cl-header-bg));
+  filter: grayscale(75%);
+}
+
+.film-list .container {
+  min-height: 70vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.explore {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: hsl(var(--cl-explore-text));
 }
