@@ -13,24 +13,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Watchlist - Movies</title>
   </head>
+
   <body>
-    <form>
+    <form class="container flex">
       <input type="text" id="demand-movie" />
       <button id="submit">Search</button>
     </form>
-    <header>
-      <div class="container">
-        <h1>Find your film</h1>
-        <a href="./watchlist.html">My Watchlist</a>
-      </div>
-    </header>
-    <main>
-      <div class="container">
-        <div id="movie-list">
-          <i class="fa-regular fa-film"></i>
-          <p>Start exploring</p>
+
+    <main class="home">
+      <section class="film-search">
+        <div class="container flex">
+          <h1>Find your film</h1>
+          <a href="./watchlist.html">My Watchlist</a>
         </div>
-      </div>
+      </section>
+
+      <section class="film-list">
+        <div class="container flex">
+          <div class="explore flex">
+            <img src="./images/film_icon.png" alt="" />
+            <p>Start exploring</p>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
