@@ -1,0 +1,40 @@
+/* ---------- CUSTOM PROPERTIES --------------- */
+
+/* RESET */
+/* CSS Reset https://andy-bell.co.uk/a-modern-css-reset/ */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/* Set up body */
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media (width >= 420px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+
+/* Make images easier to work with */
+img {
+  display: block;
+  object-fit: cover;
+}
