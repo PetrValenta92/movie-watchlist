@@ -11,29 +11,68 @@
     <link rel="stylesheet" href="./index.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Watchlist - Movies</title>
+    <title>Movie Watchlist</title>
   </head>
 
   <body>
-    <form class="container flex">
-      <input type="text" id="demand-movie" />
-      <button id="submit">Search</button>
-    </form>
-
-    <main class="home">
-      <section class="film-search">
-        <div class="container flex">
-          <h1>Find your film</h1>
-          <a href="./watchlist.html">My Watchlist</a>
+    <header class="container">
+      <div class="header__container">
+        <h1 class="header__title">Find your film</h1>
+        <a href="#" class="header__link--my-watchlist">My Watchlist</a>
+      </div>
+    </header>
+    <main class="container">
+      <form class="search-bar">
+        <div class="search-bar__input">
+          <img
+            class="input__icon"
+            src="./images/search_icon.svg"
+            alt="Magnifying glass icon"
+          />
+          <input
+            class="input__input-field"
+            type="text"
+            placeholder="Movie title"
+          />
         </div>
-      </section>
-
-      <section class="film-list">
-        <div class="container flex">
-          <div class="explore flex"></div>
+        <button id="submit" class="button--search">Search</button>
+      </form>
+      <div id="movie-list" class="movies__container">
+        <!-- PLACEHOLDER Movie card -->
+        <div class="movie-card">
+          <img
+            class="movie-card__image"
+            src="./images/placeholder_img.png"
+            alt="Movie poster image"
+          />
+          <div class="movie-card__info">
+            <div>
+              <h3 class="movie__title">Blade Runner</h3>
+              <img
+                class="movie__star-icon"
+                src="./images/star_icon.svg"
+                alt="Star icon"
+              />
+              <p class="movie__rating">8.1</p>
+            </div>
+            <div>
+              <p class="movie__lenght">116 min</p>
+              <p class="movie__genre">Drama, Mystery, Sci-fi</p>
+              <button class="button--add">
+                <img src="./images/add_icon.svg" alt="Plus icon" />
+                Watchlist
+              </button>
+            </div>
+            <p class="movie__description">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In
+              rutrum. Nullam sit amet magna in magna gravida vehicula. Maecenas
+              sollicitudin. Nulla turpis magna, cursus sit amet, suscipit a,
+              interdum id, felis.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
-    <script src="./index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
