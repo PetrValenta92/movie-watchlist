@@ -49,7 +49,7 @@ img {
 
 .container {
   width: 100%;
-  max-width: 60rem;
+  max-width: 48rem;
   margin: 0 auto;
 }
 
@@ -141,12 +141,18 @@ input {
   padding: 0.625rem 0.5rem 0.625rem 1rem;
 }
 
+/* ¨------------ IMAGES ------------------- */
+
+.movie-card__poster {
+  max-width: 6.25rem;
+}
+
 /* ------------- LAYOUT ------------------- */
 
 .header__container {
   background-image: url("./images/header_bg.jpg");
   background-size: cover;
-  background-position: 0px -10.75rem;
+  background-position: 0px -10rem;
   background-color: hsl(var(--cl-header-bg));
   text-align: center;
   display: flex;
