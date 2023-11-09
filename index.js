@@ -8,7 +8,6 @@ function renderMovie(ID) {
   fetch(`https://www.omdbapi.com/?apikey=4530f1ff&i=${ID}`)
     .then((respo) => respo.json())
     .then((data) => {
-      console.log(data);
       document.getElementById('movie-list').innerHTML += 
         `
         <div class="movie-card">
@@ -43,7 +42,7 @@ function renderMovie(ID) {
 }
 
 function renderMovies(movieIDs) {
-  movieIDs.forEach(renderMovie);
+  movieIDs.forEach(renderMovie); // fills movie HTML with the movie data from the ID list
 }
 
 function getMovies(movie) {
@@ -53,14 +52,24 @@ function getMovies(movie) {
       if (data.Response === "True") {
         IDArray = data.Search.map((movie) => movie.imdbID);
         renderMovies(IDArray);
+        resetIDArray(); // clears the list of movie IDs
       } else {
         console.error('The movie you are trying to find does not exist, or is not part of the database! Please try another movie.');
       }     
     });
 }
 
+function clearMovieList() {
+  document.getElementById('movie-list').innerHTML = ``;
+}
+
+function resetIDArray() {
+  IDArray = [];
+}
+
 document.getElementById("submit").addEventListener("click", (e) => {
   e.preventDefault();
+  clearMovieList(); // clears data from #movie-list <div>
   const demandMovie = document.getElementById("search-movie").value;
-  getMovies(demandMovie); // will return a list of searched movies 
+  getMovies(demandMovie); // gives a list of searched movie IDs
 });
