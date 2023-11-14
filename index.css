@@ -9,6 +9,7 @@
   --cl-input-text: 0, 0%, 65%;
   --cl-btn-search-bg: 0, 0%, 29%;
   --cl-bottom-line: 220, 13%, 91%;
+  --cl-label-title: 240, 1%, 18%;
 }
 
 /* RESET */
@@ -71,6 +72,10 @@ h3 {
 p {
   font-size: 0.75rem;
   line-height: 1.6;
+}
+
+.label__title {
+  font-weight: 700;
 }
 
 .movie__description {
@@ -173,6 +178,20 @@ input {
 .movies__container {
   background-color: hsl(var(--cl-main-bg));
   padding: 1.375rem 2.75rem 0;
+}
+
+.movies__container--label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 70vh;
+}
+
+.label__title {
+  color: hsl(var(--cl-label-title));
 }
 
 .movie-card {
