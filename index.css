@@ -49,7 +49,7 @@ img {
 
 .container {
   width: 100%;
-  max-width: 48rem;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
@@ -144,7 +144,8 @@ input {
 /* ¨------------ IMAGES ------------------- */
 
 .movie-card__poster {
-  max-width: 6.25rem;
+  width: 6.25rem;
+  height: 9.125rem;
 }
 
 /* ------------- LAYOUT ------------------- */

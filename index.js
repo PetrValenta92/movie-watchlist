@@ -8,11 +8,10 @@ function renderMovie(ID) {
   fetch(`https://www.omdbapi.com/?apikey=4530f1ff&i=${ID}`)
     .then((respo) => respo.json())
     .then((data) => {
-      document.getElementById('movie-list').innerHTML += 
-        `
+      document.getElementById("movie-list").innerHTML += `
         <div class="movie-card">
         <img
-          class="movie-card__image"
+          class="movie-card__poster"
           src="${data.Poster}"
           alt="Movie poster image"
         />
@@ -37,8 +36,8 @@ function renderMovie(ID) {
           <p class="movie__description">${data.Plot}</p>
         </div>
       </div>
-        `
-    } )
+        `;
+    });
 }
 
 function renderMovies(movieIDs) {
@@ -46,7 +45,9 @@ function renderMovies(movieIDs) {
 }
 
 function getMovies(movie) {
-  fetch(`https://www.omdbapi.com/?apikey=4530f1ff&s=${movie}&type=movie&plot=full`)
+  fetch(
+    `https://www.omdbapi.com/?apikey=4530f1ff&s=${movie}&type=movie&plot=full`
+  )
     .then((respo) => respo.json())
     .then((data) => {
       if (data.Response === "True") {
@@ -54,13 +55,15 @@ function getMovies(movie) {
         renderMovies(IDArray);
         resetIDArray(); // clears the list of movie IDs
       } else {
-        console.error('The movie you are trying to find does not exist, or is not part of the database! Please try another movie.');
-      }     
+        console.error(
+          "The movie you are trying to find does not exist, or is not part of the database! Please try another movie."
+        );
+      }
     });
 }
 
 function clearMovieList() {
-  document.getElementById('movie-list').innerHTML = ``;
+  document.getElementById("movie-list").innerHTML = ``;
 }
 
 function resetIDArray() {
