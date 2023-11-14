@@ -156,6 +156,7 @@ input {
 /* ------------- LAYOUT ------------------- */
 
 .header__container {
+  position: relative;
   background-image: url("./images/header_bg.jpg");
   background-size: cover;
   background-position: 0px -10rem;
@@ -167,7 +168,24 @@ input {
   padding: 5.125rem 2.875rem 4.875rem 2.625rem;
 }
 
+.header__container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: hsl(var(--cl-header-bg), 0.85);
+  z-index: 0;
+}
+
+.header__title,
+.header__link--my-watchlist {
+  z-index: 1;
+}
+
 .search-bar {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
