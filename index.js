@@ -44,22 +44,35 @@ function renderMovies(movieIDs) {
   movieIDs.forEach(renderMovie); // fills movie HTML with the movie data from the ID list
 }
 
-function getMovies(movie) {
-  fetch(
-    `https://www.omdbapi.com/?apikey=4530f1ff&s=${movie}&type=movie&plot=full`
-  )
-    .then((respo) => respo.json())
-    .then((data) => {
-      if (data.Response === "True") {
-        IDArray = data.Search.map((movie) => movie.imdbID);
-        renderMovies(IDArray);
-        resetIDArray(); // clears the list of movie IDs
-      } else {
-        console.error(
-          "The movie you are trying to find does not exist, or is not part of the database! Please try another movie."
-        );
-      }
-    });
+async function getMovies(movie) {
+  // fetch call is awaited
+  try {
+    const response = await fetch(
+      `https://www.omdbapi.com/?apikey=4530f1ff&s=${movie}&type=movie&plot=full`
+    );
+
+    // verify if the HTTP request was successful. If not, it throws an error message
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.Response === "True") {
+      IDArray = data.Search.map((movie) => movie.imdbID);
+      renderMovies(IDArray); // renders first 10 movie cards 
+      resetIDArray(); // clears the list of movie IDs
+    } else {
+      document.getElementById("movie-list").innerHTML = `
+        <div class="movies__container--label">
+          <h3 class="label__title--problem">Unable to find what you're looking for. Please try another search.</h3>
+        </div>
+      `;
+    }
+  } catch (error) {
+    console.error(`An error occurred while fetching the data: ${error.message}`);
+  }
+
 }
 
 function clearMovieList() {
