@@ -20,7 +20,7 @@ function renderMovie(ID) {
             <h3 class="movie__title">${data.Title}</h3>
             <img
               class="movie__star-icon"
-              src="./images/star_icon.svg"
+              src="./images/icons/star_icon.svg"
               alt="Star icon"
             />
             <p class="movie__rating">${data.imdbRating}</p>
@@ -29,7 +29,7 @@ function renderMovie(ID) {
             <p class="movie__lenght">${data.Runtime}</p>
             <p class="movie__genre">${data.Genre}</p>
             <button class="button--add">
-              <img src="./images/add_icon.svg" alt="Plus icon" />
+              <img src="./images/icons/add_icon.svg" alt="Plus icon" />
               Watchlist
             </button>
           </div>
