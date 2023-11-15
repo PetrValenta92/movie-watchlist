@@ -10,6 +10,7 @@
   --cl-btn-search-bg: 0, 0%, 29%;
   --cl-bottom-line: 220, 13%, 91%;
   --cl-label-title: 240, 1%, 18%;
+  --cl-label-title-problem: 0, 0%, 47%;
 }
 
 /* RESET */
@@ -74,7 +75,8 @@ p {
   line-height: 1.6;
 }
 
-.label__title {
+.label__title,
+.label__title--problem {
   font-weight: 700;
 }
 
@@ -208,8 +210,15 @@ input {
   min-height: 70vh;
 }
 
-.label__title {
+.label__title,
+.label__title--problem {
   color: hsl(var(--cl-label-title));
+}
+
+.label__title--problem {
+  color: hsl(var(--cl-label-title-problem));
+  width: 75%;
+  text-align: center;
 }
 
 .movie-card {
