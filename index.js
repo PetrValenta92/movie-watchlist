@@ -3,6 +3,7 @@
 // apiKey = 4530f1ff
 
 let IDArray;
+let watchlistArray = [];
 
 function renderMovie(ID) {
   fetch(`https://www.omdbapi.com/?apikey=4530f1ff&i=${ID}`)
@@ -28,7 +29,7 @@ function renderMovie(ID) {
           <div class="info__grid-row-2">
             <p class="movie__lenght">${data.Runtime}</p>
             <p class="movie__genre">${data.Genre}</p>
-            <button class="button--add">
+            <button id="add-movie-${ID}" class="button--add">
               <img src="./images/icons/add_icon.svg" alt="Plus icon" />
               Watchlist
             </button>
@@ -61,7 +62,7 @@ async function getMovies(movie) {
     if (data.Response === "True") {
       IDArray = data.Search.map((movie) => movie.imdbID);
       renderMovies(IDArray); // renders first 10 movie cards 
-      resetIDArray(); // clears the list of movie IDs
+      
     } else {
       document.getElementById("movie-list").innerHTML = `
         <div class="movies__container--label">
@@ -83,9 +84,24 @@ function resetIDArray() {
   IDArray = [];
 }
 
+function addMovieToWatchlist(ID) {
+  watchlistArray.push(ID);
+  // ??? DEBUG
+  console.log(watchlistArray);
+}
+
 document.getElementById("submit").addEventListener("click", (e) => {
   e.preventDefault();
-  clearMovieList(); // clears data from #movie-list <div>
+  clearMovieList(); // clears all HTML from id="movie-list" element
+  resetIDArray(); // clears the list of movie IDs
   const demandMovie = document.getElementById("search-movie").value;
-  getMovies(demandMovie); // gives a list of searched movie IDs
+  getMovies(demandMovie); // fills the movie IDs list
+});
+
+document.getElementById("movie-list").addEventListener("click", (e) => {
+  IDArray.forEach((movieID) => {
+      if(e.target.id === `add-movie-${movieID}`) {
+        addMovieToWatchlist(movieID);
+      }
+    });
 });
