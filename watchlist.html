@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Watchlist - Watchlist</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MW - Watchlist</title>
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="header__container">
+        <h1 class="header__title">My Watchlist</h1>
+        <a href="./index.html" class="header__link--my-watchlist"
+          >Search for movies</a
+        >
+      </div>
+    </header>
+    <main class="container">
+      <div id="watchlist" class="movies__container">
+        <!-- Movies render here! -->
+      </div>
+    </main>
+    <script type="module" src="./watchlist.js"></script>
+  </body>
 </html>
