@@ -1,11 +1,19 @@
-// Data source https://www.omdbapi.com/
-// get API key from https://www.omdbapi.com/apikey.aspx
-// apiKey = 4530f1ff
+// ?? Data source https://www.omdbapi.com/
+// ?? get your API key from https://www.omdbapi.com/apikey.aspx
+// !! apiKey = 4530f1ff - I know it's nasty, but in this time it shouldn't make any damage !!
 
-let IDArray;
-let watchlistArray = [];
+// -------------- VARIABLES --------------------------------
 
-function renderMovie(ID) {
+// Global array with the data from localStorage or an empty array
+let watchlistArray = JSON.parse(localStorage.getItem('watchlistArray')) || []; 
+
+// Local array of movie list 
+let IDArray = []; 
+
+// -------------- FUNCTIONS --------------------------------
+
+// Add movie card HTML 
+function getMovieCardHTML(ID) {
   fetch(`https://www.omdbapi.com/?apikey=4530f1ff&i=${ID}`)
     .then((respo) => respo.json())
     .then((data) => {
@@ -41,10 +49,12 @@ function renderMovie(ID) {
     });
 }
 
+// Render movie list
 function renderMovies(movieIDs) {
-  movieIDs.forEach(renderMovie); // fills movie HTML with the movie data from the ID list
+  movieIDs.forEach(getMovieCardHTML); 
 }
 
+// Get movie IDs from API req
 async function getMovies(movie) {
   // fetch call is awaited
   try {
@@ -61,8 +71,7 @@ async function getMovies(movie) {
 
     if (data.Response === "True") {
       IDArray = data.Search.map((movie) => movie.imdbID);
-      renderMovies(IDArray); // renders first 10 movie cards 
-      
+      renderMovies(IDArray);       
     } else {
       document.getElementById("movie-list").innerHTML = `
         <div class="movies__container--label">
@@ -76,32 +85,35 @@ async function getMovies(movie) {
 
 }
 
+// Clear movie list 
 function clearMovieList() {
   document.getElementById("movie-list").innerHTML = ``;
 }
 
+// Clear IDArray
 function resetIDArray() {
   IDArray = [];
 }
 
-function addMovieToWatchlist(ID) {
-  watchlistArray.push(ID);
-  // ??? DEBUG
-  console.log(watchlistArray);
-}
+// --------------- EVENT LISTENERS ---------------
 
-document.getElementById("submit").addEventListener("click", (e) => {
-  e.preventDefault();
-  clearMovieList(); // clears all HTML from id="movie-list" element
-  resetIDArray(); // clears the list of movie IDs
-  const demandMovie = document.getElementById("search-movie").value;
-  getMovies(demandMovie); // fills the movie IDs list
-});
+if (document.getElementById("submit")) {
+  document.getElementById("submit").addEventListener("click", (e) => {
+    e.preventDefault();
+    clearMovieList(); 
+    resetIDArray(); 
+    const demandMovie = document.getElementById("search-movie").value;
+    getMovies(demandMovie); 
+  });
+}
 
 document.getElementById("movie-list").addEventListener("click", (e) => {
   IDArray.forEach((movieID) => {
-      if(e.target.id === `add-movie-${movieID}`) {
-        addMovieToWatchlist(movieID);
+    if (e.target.id === `add-movie-${movieID}`) {
+      if (!watchlistArray.includes(movieID)) {
+        watchlistArray.push(movieID);
+        localStorage.setItem('watchlistArray', JSON.stringify(watchlistArray));
       }
-    });
+    }
+  });
 });
