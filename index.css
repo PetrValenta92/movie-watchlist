@@ -60,8 +60,16 @@ img {
 h1 {
   font-size: 2.75rem;
   font-weight: 800;
-  line-height: 0.6;
+  line-height: 0.8;
   letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+@media (width > 34rem) {
+  h1 {
+    line-height: 0.6;
+    text-transform: capitalize;
+  }
 }
 
 h3 {
