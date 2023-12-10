@@ -72,14 +72,28 @@ h1 {
 }
 
 h3 {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.1;
 }
 
+@media (width > 34rem) {
+  h3 {
+    font-size: 1.125rem;
+    line-height: 1.1;
+  }
+}
+
 p {
-  font-size: 0.75rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+@media (width > 27rem) {
+  p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
 }
 
 .label__title,
@@ -87,9 +101,19 @@ p {
   font-weight: 700;
 }
 
+.movie__genre {
+  text-align: center;
+}
+
 .movie__description {
   font-size: 0.875rem;
-  line-height: 1.4;
+  line-height: 1.2;
+}
+
+@media (width > 27rem) {
+  .movie__description {
+    line-height: 1.4;
+  }
 }
 
 /* --------------- LINKS ------------------- */
@@ -125,7 +149,7 @@ button {
   font-weight: 500;
   line-height: 2;
   background-color: hsl(var(--cl-btn-search-bg));
-  padding: 0.5rem 1.125rem;
+  padding: 0.5rem 1rem;
 }
 
 @media (width > 22.5rem) {
@@ -193,8 +217,15 @@ input {
 /* ¨------------ IMAGES ------------------- */
 
 .movie-card__poster {
-  width: 6.25rem;
-  height: 9.125rem;
+  display: none;
+}
+
+@media (width > 27rem) {
+  .movie-card__poster {
+    display: block;
+    width: 6.25rem;
+    height: 9.125rem;
+  }
 }
 
 /* ------------- LAYOUT ------------------- */
@@ -280,13 +311,21 @@ input {
 
 .movie-card {
   display: flex;
-  padding: 24px 0;
+  padding: 1.5rem 0;
   border-bottom: 1.5px solid hsl(var(--cl-bottom-line));
 }
 
 .movie-card__info {
   display: grid;
-  padding: 0 1.375rem;
+  padding: 0;
+  row-gap: 0.5rem;
+}
+
+@media (width > 27rem) {
+  .movie-card__info {
+    padding: 0 1.375rem;
+    row-gap: 0;
+  }
 }
 
 .info__grid-row-1,
@@ -296,15 +335,38 @@ input {
 }
 
 .info__grid-row-1 {
-  grid-template-columns: repeat(3, auto);
-  justify-content: start;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.movie__title {
+  grid-column: 1;
+}
+
+.movie__rating {
+  display: flex;
+  justify-content: end;
   align-items: center;
   gap: 0.25rem;
+  grid-column: 2;
 }
 
 .info__grid-row-2 {
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  gap: 0.5rem;
+}
+
+.movie__genre {
+  justify-self: center;
+  grid-column: 2;
+}
+
+.button--add {
+  justify-self: end;
+  grid-column: 3;
 }
 
 .movie__description {
