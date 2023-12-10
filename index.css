@@ -68,7 +68,6 @@ h1 {
 @media (width > 34rem) {
   h1 {
     line-height: 0.6;
-    text-transform: capitalize;
   }
 }
 
@@ -176,13 +175,24 @@ input {
   position: relative;
   background-image: url("./images/header_bg.jpg");
   background-size: cover;
-  background-position: 0px -10rem;
+  background-position: 0px -7rem;
   background-color: hsl(var(--cl-header-bg));
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 5.125rem 2.875rem 4.875rem 2.625rem;
+  gap: 2.5rem;
+  padding: 5rem 2.5rem;
+
+  border: 1px solid red;
+}
+
+@media (width > 34rem) {
+  .header__container {
+    background-position: 0px -15rem;
+    justify-content: space-between;
+    padding: 5.125rem 2.875rem 4.875rem 2.625rem;
+  }
 }
 
 .header__container::before {
