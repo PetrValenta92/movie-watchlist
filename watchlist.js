@@ -19,13 +19,13 @@ function getWatclistMovieCardHTML(ID) {
                 <div class="info__grid-row-1">
                     <h3 class="movie__title">${data.Title}</h3>
                     <div class="movie__rating">
-                <img
-                  class="rating__star-icon"
-                  src="./images/icons/star_icon.svg"
-                  alt="Star icon"
-                />
-                <p class="rating__number">${data.imdbRating}</p>
-              </div>
+                        <img
+                        class="rating__star-icon"
+                        src="./images/icons/star_icon.svg"
+                        alt="Star icon"
+                        />
+                        <p class="rating__number">${data.imdbRating}</p>
+                    </div>
                 </div>
                 <div class="info__grid-row-2">
                     <p class="movie__lenght">${data.Runtime}</p>
