@@ -8,6 +8,8 @@
   --cl-input-bg: 240, 1%, 18%;
   --cl-input-text: 0, 0%, 65%;
   --cl-btn-search-bg: 0, 0%, 29%;
+  --cl-btn-add-hover: 40, 99%, 66%;
+  --cl-btn-remove-hover: 355, 78%, 56%;
   --cl-bottom-line: 220, 13%, 91%;
   --cl-label-title: 240, 1%, 18%;
   --cl-label-title-problem: 0, 0%, 47%;
@@ -162,12 +164,31 @@ button {
   }
 }
 
-.button--add {
+.button--search:hover,
+.button--search:focus-visible {
+  color: hsl(var(--cl-btn-search-bg));
+  background-color: hsl(var(--cl-text));
+}
+
+.button--add,
+.button--remove {
   display: flex;
   align-items: center;
   gap: 0.375rem;
   font-size: 0.75rem;
   line-height: 1.6;
+}
+
+.button--add:hover,
+.button--add:focus-visible {
+  color: hsl(var(--cl-btn-add-hover));
+  text-decoration: underline;
+}
+
+.button--remove:hover,
+.button--remove:focus-visible {
+  color: hsl(var(--cl-btn-remove-hover));
+  text-decoration: underline;
 }
 
 /* ----------------- INPUTS -------------------- */
@@ -263,8 +284,19 @@ input {
   z-index: 0;
 }
 
+.header__container--watchlist {
+  flex-direction: column;
+}
+
+@media (width >= 36rem) {
+  .header__container--watchlist {
+    flex-direction: row;
+  }
+}
+
 .header__title,
-.header__link--my-watchlist {
+.header__link--my-watchlist,
+.header__link--search-list {
   z-index: 1;
 }
 
@@ -347,14 +379,14 @@ input {
 
 .movie__rating {
   display: flex;
-  justify-content: end;
+  justify-content: start;
   align-items: center;
   gap: 0.25rem;
   grid-column: 2;
 }
 
 .info__grid-row-2 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 0.5rem;
 }
