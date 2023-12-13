@@ -269,7 +269,6 @@ input {
   .header__container {
     background-position: 0px -15rem;
     justify-content: space-between;
-    padding: 5.125rem 2.875rem 4.875rem 2.625rem;
   }
 }
 
@@ -286,11 +285,19 @@ input {
 
 .header__container--watchlist {
   flex-direction: column;
+  padding: 3.5rem 2.5rem;
 }
 
 @media (width >= 36rem) {
   .header__container--watchlist {
     flex-direction: row;
+  }
+}
+
+@media (width >= 36rem) {
+  .header__container,
+  .header__container--watchlist {
+    padding: 5.125rem 2.875rem 4.875rem 2.625rem;
   }
 }
 
