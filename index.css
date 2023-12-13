@@ -135,6 +135,17 @@ a {
   }
 }
 
+.header__link--my-watchlist:hover,
+.header__link--my-watchlist:focus-visible,
+.header__link--search-list:hover,
+.header__link--search-list:focus-visible {
+  padding: 0.675rem;
+  margin: -0.675rem;
+  border-radius: 0.5rem;
+  color: hsl(var(--cl-main-bg));
+  background-color: hsl(var(--cl-text));
+}
+
 /* ---------------- BUTTONS -------------------- */
 
 button {
