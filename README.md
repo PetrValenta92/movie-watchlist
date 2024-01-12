@@ -31,19 +31,27 @@ Movie Watchlist web app allows users to do following:
 
 ### Screenshot
 
-Default
+**Default**
 
 ![Default](./images/screenshots/default.png)
 
-Searching
+**Searching**
+
+_Successfull_
 
 ![Successfull](./images/screenshots/searching_success.png)
 
+_Failed_
+
 ![Failed](./images/screenshots/searching_fail.png)
 
-Watchlist
+**Watchlist**
+
+_Full_
 
 ![Full](./images/screenshots/watchlist_full.png)
+
+_Empty_
 
 ![Empty](./images/screenshots/watchlist_empty.png)
 
