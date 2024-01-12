@@ -83,6 +83,11 @@ async function getMovies(movie) {
     }
   } catch (error) {
     console.error(`An error occurred while fetching the data: ${error.message}`);
+    document.getElementById("movie-list").innerHTML = `
+        <div class="movies__container--label">
+          <h3 class="label__title--problem">Something went wrong... Please refresh the page!</h3>
+        </div>
+      `;
   }
 
 }
